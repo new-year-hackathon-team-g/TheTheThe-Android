@@ -6,6 +6,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".PopFragment">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/heart_eruption_lottie"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lottie_rawRes="@raw/heart_eruption" />
+
     <com.soopeach.thethethe_android.custom.PopButton
         android:id="@+id/pop_button"
         android:layout_width="300dp"
@@ -31,5 +43,29 @@
         android:layout_marginBottom="50dp"
         android:indeterminate="false"
         android:layout_marginHorizontal="40dp"/>
+
+    <com.soopeach.thethethe_android.custom.FlexibleCornerImageView
+        android:id="@+id/my_profile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="@id/progress_bar"
+        app:layout_constraintEnd_toStartOf="@id/progress_bar"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        android:layout_marginBottom="12dp"
+        app:all_corner_radius="25dp"
+        android:src="@drawable/pressed"
+        />
+
+    <com.soopeach.thethethe_android.custom.FlexibleCornerImageView
+        android:id="@+id/love_profile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toEndOf="@id/progress_bar"
+        app:layout_constraintEnd_toEndOf="@id/progress_bar"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        android:layout_marginBottom="12dp"
+        app:all_corner_radius="25dp"
+        android:src="@drawable/normal"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
