@@ -25,7 +25,7 @@ private const val ARG_PARAM2 = "param2"
 class RankViewHolder(val binding: RankRetrofitBinding) : RecyclerView.ViewHolder(binding.root)
 class RankAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return 1
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder
