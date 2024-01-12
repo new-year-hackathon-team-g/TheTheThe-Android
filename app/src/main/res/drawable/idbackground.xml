@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+
+    <!-- drawable/rectangle_2.xml -->
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="360dp"
+    android:height="167dp"
+    android:viewportWidth="360"
+    android:viewportHeight="167"
+    >
+    <group>
+        <clip-path
+            android:pathData="M50 0H310C337.614 0 360 22.3858 360 50V117C360 144.614 337.614 167 310 167H50C22.3858 167 0 144.614 0 117V50C0 22.3858 22.3858 0 50 0Z"
+            />
+        <path
+            android:pathData="M0 0V167H360V0"
+            android:fillColor="#FFFFFF"
+            />
+    </group>
+</vector>
+
+

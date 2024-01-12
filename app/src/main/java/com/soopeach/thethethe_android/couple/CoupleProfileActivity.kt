@@ -68,15 +68,15 @@ class CoupleProfileActivity : AppCompatActivity() {
                     save()
                     //val intent = Intent(this, LoadingActivity::class.java)
                     //startActivity(intent)
-                    binding.idLayout.visibility= View.VISIBLE
+                    //binding.idLayout.visibility= View.VISIBLE
                 }
             }
         }
-
+/*
         binding.checkbutton.setOnClickListener {
             var intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-        }
+        }*/
     }
 
     private fun save() {
