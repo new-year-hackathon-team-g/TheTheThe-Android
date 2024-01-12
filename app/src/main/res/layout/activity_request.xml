@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".couple.RequestActivity"
-    android:background="#FFF6F5">
+    android:background="@color/background_pink">
 
 
     <LinearLayout
@@ -21,21 +21,21 @@
         android:layout_margin="10dp"
         android:src="@drawable/explain"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/create_couple"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="#F6BFBF"
+            style="@style/TheButtonMain"
             android:text="커플생성"
             />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/request_couple"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="#E7B1B1"
+            style="@style/TheButtonMain"
             android:text="커플참여"
             />
     </LinearLayout>
