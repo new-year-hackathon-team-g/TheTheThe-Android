@@ -1,111 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".rank.RankFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/my_couple"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingTop="10dp"
-        android:background="@color/white"
-        android:id="@+id/mycouple_ranking">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="우리 커플"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:id="@+id/option1_my"
-            >
-            <TextView
-                android:id="@+id/ranking_my"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="등수"/>
+    <include
+        android:id="@+id/my_couple_rank"
+        layout="@layout/rank_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_couple" />
 
-            <ImageView
-                android:layout_toRightOf="@+id/ranking_my"
-                android:layout_marginLeft="20dp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/user_profile"
-                />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_toRightOf="@+id/option1_my"
-            >
-            <TextView
-                android:id="@+id/couple_name_my"
-                android:layout_width="220dp"
-                android:layout_height="wrap_content"
-                android:text="사용자"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/item_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/couple_name_my"
-                android:layout_marginTop="3dp"
-                android:text="장소 종류"
-                android:textColor="#727272"
-                android:textSize="10sp" />
-            <TextView
-                android:id="@+id/couple_memo_my"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/item_type"
-                android:layout_marginTop="3dp"
-                android:text="상세설명"
-                android:textColor="#727272"
-                android:textSize="14sp" />
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                android:id="@+id/save_btn">
-
-                <TextView
-                    android:id="@+id/point_my"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="점수"
-                    android:layout_marginLeft="200dp"
-                    android:layout_marginTop="13sp"
-                    android:textSize="30sp"
-                    android:textColor="#537CC5"/>
-
-            </RelativeLayout>
-
-
-        </RelativeLayout>
-
-
-
-    </RelativeLayout>
-
-
+    <TextView
+        android:id="@+id/other_couple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="사랑꾼들"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_couple_rank"
+        app:layout_goneMarginTop="28dp"
+        />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerView"
-        android:layout_marginTop="100dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/mycouple_ranking"/>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@id/other_couple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/other_couple"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
