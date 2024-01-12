@@ -10,6 +10,7 @@ import com.soopeach.thethethe_android.model.SignUpRequest
 import com.soopeach.thethethe_android.model.couple.CoupleRequest
 import com.soopeach.thethethe_android.model.couple.CoupleResponse
 import com.soopeach.thethethe_android.model.login.LoginResponse
+import com.soopeach.thethethe_android.model.pop.PopResponse
 import kotlinx.coroutines.tasks.await
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -91,6 +92,10 @@ object NetworkModule {
 
     suspend fun joinCouple(token: String, secretId: String): Boolean {
         return getCoupleApi().joinCouple(token, secretId).contains("success")
+    }
+
+    suspend fun postPop(token: String, count: Int): PopResponse {
+        return getUserApi().postPop(token, count)
     }
 
 
