@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.soopeach.thethethe_android.databinding.ActivityMainBinding
+import com.soopeach.thethethe_android.rank.RankFragment
 import com.soopeach.thethethe_android.recommendation.RecommendationFragment
 
 class MainActivity : AppCompatActivity() {
