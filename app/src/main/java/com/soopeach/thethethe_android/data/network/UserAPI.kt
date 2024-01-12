@@ -8,10 +8,10 @@ import retrofit2.http.POST
 
 interface UserAPI {
 
-    @POST("signup")
+    @POST("api/signup")
     suspend fun postSignUp(@Body signUpRequest: SignUpRequest): String
 
-    @POST("login")
+    @POST("api/login")
     suspend fun postLogin(@Body loginRequest: LoginRequest): LoginResponse
 
 }
