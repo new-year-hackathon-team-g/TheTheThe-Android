@@ -5,4 +5,10 @@
 
     <color name="grey100">#F1F3F4</color>
     <color name="grey300">#B7C1C8</color>
+
+    <color name="gold">#FFED4A</color>
+    <color name="silver">#EEEEEE</color>
+    <color name="bronze">#EBC29D</color>
+    <color name="grey">#F8F8F8</color>
+
 </resources>

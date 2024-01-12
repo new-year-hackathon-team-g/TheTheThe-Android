@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.soopeach.thethethe_android.R
 import com.soopeach.thethethe_android.databinding.RankItemBinding
 import com.soopeach.thethethe_android.model.Couple
+import com.soopeach.thethethe_android.utils.toProcessedString
 
 class RankListAdapter() : ListAdapter<Couple, RankViewHolder>(
     diffCallback
@@ -44,20 +46,37 @@ class RankListAdapter() : ListAdapter<Couple, RankViewHolder>(
 
     override fun onBindViewHolder(holder: RankViewHolder, position: Int) {
         getItem(position)?.let {
-            holder.bind(it)
+            holder.bind(it, position + 1)
         }
     }
 
 }
 
 class RankViewHolder(private val binding: RankItemBinding) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(item: Couple) {
+    fun bind(item: Couple, seq: Int) {
         with(binding) {
+
+            rank.text = seq.toString()
             coupleName.text = item.coupleName
-            coupleMemo.text = item.introduction
+            introduction.text = item.introduction
+            score.text = item.store.toProcessedString()
             Glide.with(root)
                 .load(item.coupleImageUrl)
-                .into(coupleImg)
+                .into(profileImg)
+
+            when (seq) {
+                1 -> {
+                    this.root.setBackgroundResource(R.drawable.bg_rounded_border_16_gold)
+                }
+
+                2 -> {
+                    this.root.setBackgroundResource(R.drawable.bg_rounded_border_16_silver)
+                }
+
+                3 -> {
+                    this.root.setBackgroundResource(R.drawable.bg_rounded_border_16_bronze)
+                }
+            }
         }
     }
 }

@@ -15,6 +15,7 @@ class RankFragment : Fragment() {
     private var _binding: FragmentRankBinding? = null
     private val binding
         get() = requireNotNull(_binding)
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,42 +39,47 @@ class RankFragment : Fragment() {
                     "꽁냥커플",
                     "https://source.unsplash.com/user/max_duz/300x300",
                     "안녕하세요",
-                    "2021-09-01"
+                    "2021-09-01",
+                    1000000
                 ),
                 Couple(
                     2,
                     "카풀할 사람",
                     "https://source.unsplash.com/user/max_duz/300x300",
                     "님 카풀 해본 적 있나요",
-                    "2021-09-01"
+                    "2021-09-01",
+                    200300
                 ),
                 Couple(
                     3,
                     "아 배고파",
                     "https://source.unsplash.com/user/max_duz/300x300",
                     "한줄 소개",
-                    "2021-09-01"
+                    "2021-09-01",
+                    232
                 ),
                 Couple(
                     4,
                     "커플 커플",
                     "https://source.unsplash.com/user/max_duz/300x300",
                     "안녕하세요",
-                    "2021-09-01"
+                    "2021-09-01", 12
                 ),
                 Couple(
                     5,
                     "잉꼬부부",
                     "https://source.unsplash.com/user/max_duz/300x300",
                     "안녕하세요",
-                    "2021-09-01"
+                    "2021-09-01",
+                    1
                 ),
                 Couple(
                     6,
                     "원앙 커플",
                     "https://source.unsplash.com/user/max_duz/300x300",
                     "으아아아아아ㅏ아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏ",
-                    "2021-09-01"
+                    "2021-09-01",
+                    0
                 ),
             )
         )
