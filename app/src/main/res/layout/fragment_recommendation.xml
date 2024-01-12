@@ -14,7 +14,7 @@
         android:layout_marginHorizontal="12dp"
         android:layout_marginTop="12dp"
         android:text="추천 영상"
-        android:textSize="24sp"
+        style="@style/title_medium_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
