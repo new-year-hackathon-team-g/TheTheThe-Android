@@ -1,6 +1,7 @@
 package com.soopeach.thethethe_android.data.network
 
 import com.google.gson.GsonBuilder
+import com.soopeach.thethethe_android.model.RecommendationVideo
 import com.soopeach.thethethe_android.model.login.LoginRequest
 import com.soopeach.thethethe_android.model.SignUpRequest
 import com.soopeach.thethethe_android.model.login.LoginResponse
@@ -33,12 +34,16 @@ object NetworkModule {
                 .build()
         ).build()
 
-    fun getVideoApi(): VideoAPI {
+    private fun getVideoApi(): VideoAPI {
         return client.create(VideoAPI::class.java)
     }
 
     private fun getUserApi(): UserAPI {
         return client.create(UserAPI::class.java)
+    }
+
+    suspend fun getVideos(): List<RecommendationVideo> {
+        return getVideoApi().getVideos()
     }
 
     suspend fun postLogin(loginRequest: LoginRequest): LoginResponse {

@@ -44,7 +44,7 @@ class RecommendationFragment : Fragment() {
             LinearLayoutManager(requireContext())
 
         viewLifecycleOwner.lifecycleScope.launch {
-            NetworkModule.getVideoApi().getVideos().apply {
+            NetworkModule.getVideos().apply {
                 adapter.submitList(
                     this
                 )
