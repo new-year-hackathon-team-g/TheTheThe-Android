@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.soopeach.thethethe_android.data.local.AccountDataStore
+import com.soopeach.thethethe_android.login.LoginActivity
 import com.soopeach.thethethe_android.signup.SignUpActivity
 import kotlinx.coroutines.launch
 
@@ -18,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
             val accessToken = AccountDataStore(context = this@SplashActivity).getAccessToken()
 
             if (accessToken.isNullOrEmpty()) {
-                val intent = Intent(this@SplashActivity, SignUpActivity::class.java)
+                val intent = Intent(this@SplashActivity, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {
