@@ -9,8 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.soopeach.thethethe_android.R
 import com.soopeach.thethethe_android.databinding.FragmentRankBinding
-import com.soopeach.thethethe_android.databinding.FragmentRecommendationBinding
-import com.soopeach.thethethe_android.model.Couple
+import com.soopeach.thethethe_android.model.couple.Couple
 import com.soopeach.thethethe_android.utils.toProcessedString
 
 class RankFragment : Fragment() {

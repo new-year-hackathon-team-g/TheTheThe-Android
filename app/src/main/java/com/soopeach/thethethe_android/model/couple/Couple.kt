@@ -1,4 +1,4 @@
-package com.soopeach.thethethe_android.model
+package com.soopeach.thethethe_android.model.couple
 
 data class Couple(
     val cid: Long,
