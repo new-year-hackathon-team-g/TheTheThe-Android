@@ -114,11 +114,11 @@ class CoupleProfileActivity : AppCompatActivity() {
 
     private fun save() {
         val coupleName = binding.coupleNameSetting.text.toString()
-        val coupleIntro = binding.coupleIntroSetting.text.toString()
+        val coupleIntro =  binding.coupleIntroSetting.text.toString()
 
         val data = hashMapOf(
             "coupleName" to coupleName,
-            "introduction" to coupleIntro
+            "introduction" to  coupleIntro
         )
     }
 }

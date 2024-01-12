@@ -74,19 +74,18 @@
         android:id="@+id/id_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="invisible">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_gravity="bottom"
-        android:src="@drawable/idbackground"/>
+        android:visibility="invisible"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/idbackground"
+            android:layout_gravity="center"/>
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginTop="100dp">
+            android:gravity="center">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,20 +94,25 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp">
-            <Button
-                android:id="@+id/id_copy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="복사"
-                android:layout_marginRight="20dp"/>
-            <Button
-                android:id="@+id/checkbutton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="확인" />
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center">
+                <Button
+                    android:id="@+id/id_copy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="복사"
+                    android:layout_marginRight="20dp"/>
+                <Button
+                    android:id="@+id/checkbutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#F6BFBF"
+                    android:text="확인"
+                    />
             </LinearLayout>
+
         </LinearLayout>
-</FrameLayout>
+    </FrameLayout>
+
 
 </LinearLayout>
