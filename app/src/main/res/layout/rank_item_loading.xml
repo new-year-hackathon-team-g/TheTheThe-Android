@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="8dp"
     android:background="@drawable/bg_rounded_border_16_grey"
     android:orientation="vertical"
@@ -14,8 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
-        tools:text="1"
         style="@style/title_medium_bold"
+        android:background="#ffaaaaaa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +24,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginHorizontal="12dp"
-        tools:src="@drawable/normal"
+        android:background="#ffaaaaaa"
         app:all_corner_radius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/rank"
@@ -37,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:orientation="vertical"
+        android:background="#ffaaaaaa"
         app:layout_constraintBottom_toBottomOf="@id/profile_img"
         app:layout_constraintEnd_toStartOf="@id/score"
         app:layout_constraintStart_toEndOf="@id/profile_img"
@@ -47,14 +47,14 @@
             style="@style/text_large_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="커플 이름" />
+             />
 
         <TextView
             android:id="@+id/introduction"
             style="@style/text_medium_medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="소개글 어쩌구 저쩌구" />
+             />
     </LinearLayout>
 
     <TextView
@@ -63,6 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         style="@style/text_large_bold"
+        android:background="#ffaaaaaa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

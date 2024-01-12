@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.soopeach.thethethe_android.data.network.NetworkModule
@@ -48,6 +49,8 @@ class RecommendationFragment : Fragment() {
                 adapter.submitList(
                     this
                 )
+                binding.shimmer.isVisible = false
+
             }
         }
 

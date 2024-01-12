@@ -48,7 +48,6 @@ class LoginFragment : Fragment() {
                     LoginRequest(
                         email = binding.emailEditText.text,
                         password = binding.passwordEditText.text
-
                     )
                 ).accessToken
 

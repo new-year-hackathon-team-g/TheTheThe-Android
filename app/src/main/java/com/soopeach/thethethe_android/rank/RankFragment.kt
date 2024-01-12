@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -39,6 +40,8 @@ class RankFragment : Fragment() {
             val token = AccountDataStore(requireContext()).getAccessToken()!!
             val myCoupleData = NetworkModule.getCoupleInfo(token.toToken())
             val otherCoupleData = NetworkModule.getRanking(token.toToken())
+            binding.myShimmer.isVisible = false
+            binding.otherShimmer.isVisible = false
 
             with(binding.myCoupleRank) {
 
@@ -63,6 +66,7 @@ class RankFragment : Fragment() {
                     3 -> {
                         this.root.setBackgroundResource(R.drawable.bg_rounded_border_16_bronze)
                     }
+
                     else -> {
                         this.root.setBackgroundResource(R.drawable.bg_rounded_border_16_grey)
                     }
