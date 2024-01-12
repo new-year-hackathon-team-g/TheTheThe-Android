@@ -15,6 +15,15 @@
         android:theme="@style/Theme.TheTheTheAndroid"
         tools:targetApi="31">
         <activity
+            android:name=".couple.ConnectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".couple.LoadingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".couple.CoupleProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".couple.RequestActivity"
             android:exported="false" />
         <activity
