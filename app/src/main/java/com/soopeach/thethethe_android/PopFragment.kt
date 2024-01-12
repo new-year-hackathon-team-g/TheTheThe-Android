@@ -8,6 +8,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.soopeach.thethethe_android.data.local.AccountDataStore
 import com.soopeach.thethethe_android.data.network.NetworkModule
 import com.soopeach.thethethe_android.databinding.FragmentPopBinding
@@ -54,6 +55,21 @@ class PopFragment : Fragment() {
                 }
             }
             false
+        }
+
+        lifecycleScope.launch {
+            val token = AccountDataStore(requireContext()).getAccessToken()!!
+            val myCoupleData = NetworkModule.getCoupleInfo(token.toToken())
+            val (me, love) = myCoupleData.users.map {
+                it.profileImageUrl
+            }
+            Glide.with(requireContext())
+                .load(me)
+                .into(binding.myProfile)
+
+            Glide.with(requireContext())
+                .load(love)
+                .into(binding.loveProfile)
         }
 
         lifecycleScope.launch {
