@@ -1,8 +1,10 @@
 package com.soopeach.thethethe_android
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
@@ -25,9 +27,22 @@ class PopFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.popButton.addOnTouchEvent { _, event ->
+            when (event.action) {
+                MotionEvent.ACTION_UP -> {
+                    binding.heartEruptionLottie.speed = 1f
+                }
+
+                MotionEvent.ACTION_DOWN -> {
+                    binding.heartEruptionLottie.speed = 5f
+                }
+            }
+            false
+        }
         viewLifecycleOwner.lifecycleScope.launch {
             while (true) {
 

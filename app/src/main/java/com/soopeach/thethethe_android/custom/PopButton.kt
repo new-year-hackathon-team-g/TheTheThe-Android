@@ -7,9 +7,9 @@ import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatImageView
 import com.soopeach.thethethe_android.R
 
-class PopButton(context: Context, attrs: AttributeSet) : AppCompatImageView(context, attrs){
+@SuppressLint("ClickableViewAccessibility")
+class PopButton(context: Context, attrs: AttributeSet) : AppCompatImageView(context, attrs) {
 
-    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_UP -> {
@@ -22,6 +22,10 @@ class PopButton(context: Context, attrs: AttributeSet) : AppCompatImageView(cont
             }
         }
         return true
+    }
+
+    fun addOnTouchEvent(listener: OnTouchListener) {
+        setOnTouchListener(listener)
     }
 
 
