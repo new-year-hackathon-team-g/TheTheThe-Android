@@ -76,6 +76,7 @@ class SignUpFragment : Fragment() {
                 if (imageUriState.value == null) {
                     Toast.makeText(requireContext(), "프로필 사진을 선택해주세요.", Toast.LENGTH_SHORT).show()
                 } else {
+
                     var imageUrl = "https://source.unsplash.com/user/max_duz/300x300"
                     binding.selectImagesButton.apply {
                         isDrawingCacheEnabled = true
