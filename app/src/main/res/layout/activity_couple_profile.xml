@@ -23,7 +23,7 @@
         android:text="사진변경하기"/>
 
     <TextView
-        android:layout_margin="10dp"
+        android:layout_marginLeft="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="커플명"/>
@@ -38,7 +38,8 @@
         android:hint="커플명을 입력해주세요."/>
 
     <TextView
-        android:layout_margin="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="한줄소개"/>
