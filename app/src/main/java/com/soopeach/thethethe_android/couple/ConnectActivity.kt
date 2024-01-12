@@ -3,9 +3,15 @@ package com.soopeach.thethethe_android.couple
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.lifecycleScope
 import com.soopeach.thethethe_android.MainActivity
 import com.soopeach.thethethe_android.R
+import com.soopeach.thethethe_android.data.local.AccountDataStore
+import com.soopeach.thethethe_android.data.network.NetworkModule
 import com.soopeach.thethethe_android.databinding.ActivityConnectBinding
+import com.soopeach.thethethe_android.model.couple.CoupleRequest
+import com.soopeach.thethethe_android.utils.toToken
+import kotlinx.coroutines.launch
 
 class ConnectActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,8 +22,20 @@ class ConnectActivity : AppCompatActivity() {
         binding.checkbutton2.setOnClickListener {
             binding.idCheck.text.toString()
 
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            lifecycleScope.launch {
+                val token =
+                    AccountDataStore(context = this@ConnectActivity).getAccessToken()
+                val isSuccess = NetworkModule.joinCouple(
+                    token!!.toToken(),
+                    binding.idCheck.text.toString()
+                )
+
+                if (isSuccess) {
+                    val intent = Intent(this@ConnectActivity, MainActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+
         }
     }
 }
