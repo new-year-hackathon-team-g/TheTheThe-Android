@@ -5,37 +5,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".couple.RequestActivity">
+    tools:context=".couple.RequestActivity"
+    android:background="#FFF6F5">
 
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/request_text"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="커플 생성을 눌러 "/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/request_text"
+        android:orientation="vertical"
         android:layout_marginTop="50dp">
+    <ImageView
+        android:id="@+id/explain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:src="@drawable/explain"/>
 
-    <Button
-        android:id="@+id/create_couple"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="커플생성"
-        />
+        <Button
+            android:id="@+id/create_couple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="#F6BFBF"
+            android:text="커플생성"
+            />
 
         <Button
             android:id="@+id/request_couple"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="#E7B1B1"
             android:text="커플참여"
             />
     </LinearLayout>
+
+
+
+
+
 </FrameLayout>

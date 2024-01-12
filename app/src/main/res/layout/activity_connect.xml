@@ -5,23 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFF6F5"
     tools:context=".couple.ConnectActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
         android:text="전달받은 id를 입력해주세요"/>
 
     <EditText
         android:id="@+id/id_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:hint="전달받은 id를 입력해주세요"/>
 
     <Button
         android:id="@+id/checkbutton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
         android:text="확인"/>
 
 </LinearLayout>
