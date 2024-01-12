@@ -11,4 +11,8 @@
     <color name="bronze">#EBC29D</color>
     <color name="grey">#F8F8F8</color>
 
+    <color name="soft_pink">#F6BFBF</color>
+    <color name="pink">#F67878</color>
+    <color name="ripple_pink">#9AF67878</color>
+
 </resources>

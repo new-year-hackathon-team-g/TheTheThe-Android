@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.TheTheTheAndroid" parent="Base.Theme.TheTheTheAndroid" />
+
+    <style name="TheButtonMain" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/the_button_background_main</item>
+        <item name="android:textColor">@color/grey100</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@style/text_large_bold</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
 </resources>
