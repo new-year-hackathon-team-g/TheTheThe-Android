@@ -63,6 +63,8 @@ dependencies {
     // Gson 변환기
     implementation("com.google.code.gson:gson:2.9.1")
 
+    implementation("com.squareup.retrofit2:converter-scalars:2.5.0")
+
     // data store
     implementation("androidx.datastore:datastore-preferences:1.0.0")
     implementation("androidx.datastore:datastore-core:1.0.0")

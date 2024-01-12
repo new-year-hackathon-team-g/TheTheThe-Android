@@ -5,5 +5,6 @@ data class Couple(
     val coupleName: String,
     val coupleImageUrl: String,
     val introduction: String,
-    val startDate: String
+    val startDate: String,
+    val store: Int
 )
