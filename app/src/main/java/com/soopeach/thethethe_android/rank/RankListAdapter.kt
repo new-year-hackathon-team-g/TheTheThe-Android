@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.soopeach.thethethe_android.R
 import com.soopeach.thethethe_android.databinding.RankItemBinding
-import com.soopeach.thethethe_android.model.Couple
+import com.soopeach.thethethe_android.model.couple.Couple
 import com.soopeach.thethethe_android.utils.toProcessedString
 
 class RankListAdapter() : ListAdapter<Couple, RankViewHolder>(
