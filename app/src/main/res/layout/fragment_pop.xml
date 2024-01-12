@@ -32,4 +32,28 @@
         android:indeterminate="false"
         android:layout_marginHorizontal="40dp"/>
 
+    <com.soopeach.thethethe_android.custom.FlexibleCornerImageView
+        android:id="@+id/my_profile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="@id/progress_bar"
+        app:layout_constraintEnd_toStartOf="@id/progress_bar"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        android:layout_marginBottom="12dp"
+        app:all_corner_radius="25dp"
+        android:src="@drawable/pressed"
+        />
+
+    <com.soopeach.thethethe_android.custom.FlexibleCornerImageView
+        android:id="@+id/love_profile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toEndOf="@id/progress_bar"
+        app:layout_constraintEnd_toEndOf="@id/progress_bar"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        android:layout_marginBottom="12dp"
+        app:all_corner_radius="25dp"
+        android:src="@drawable/normal"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
