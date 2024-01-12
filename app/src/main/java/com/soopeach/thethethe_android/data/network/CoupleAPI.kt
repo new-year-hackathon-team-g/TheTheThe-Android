@@ -27,4 +27,9 @@ interface CoupleAPI {
         @Path("secretId") secretId: String
     ): String
 
+    @GET("api/couples/ranking")
+    suspend fun getRanking(
+        @Header("Authorization") token: String
+    ): List<CoupleResponse>
+
 }

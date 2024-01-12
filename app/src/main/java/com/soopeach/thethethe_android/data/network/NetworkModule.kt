@@ -98,5 +98,9 @@ object NetworkModule {
         return getUserApi().postPop(token, count)
     }
 
+    suspend fun getRanking(token: String): List<CoupleResponse> {
+        return getCoupleApi().getRanking(token)
+    }
+
 
 }

@@ -9,23 +9,24 @@ import com.bumptech.glide.Glide
 import com.soopeach.thethethe_android.R
 import com.soopeach.thethethe_android.databinding.RankItemBinding
 import com.soopeach.thethethe_android.model.couple.Couple
+import com.soopeach.thethethe_android.model.couple.CoupleResponse
 import com.soopeach.thethethe_android.utils.toProcessedString
 
-class RankListAdapter() : ListAdapter<Couple, RankViewHolder>(
+class RankListAdapter() : ListAdapter<CoupleResponse, RankViewHolder>(
     diffCallback
 ) {
 
     companion object {
-        val diffCallback = object : DiffUtil.ItemCallback<Couple>() {
+        val diffCallback = object : DiffUtil.ItemCallback<CoupleResponse>() {
             override fun areItemsTheSame(
-                oldItem: Couple,
-                newItem: Couple
+                oldItem: CoupleResponse,
+                newItem: CoupleResponse
             ) =
-                oldItem.cid == newItem.cid
+                oldItem.id == newItem.id
 
             override fun areContentsTheSame(
-                oldItem: Couple,
-                newItem: Couple
+                oldItem: CoupleResponse,
+                newItem: CoupleResponse
             ) =
                 oldItem == newItem
         }
@@ -53,13 +54,13 @@ class RankListAdapter() : ListAdapter<Couple, RankViewHolder>(
 }
 
 class RankViewHolder(private val binding: RankItemBinding) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(item: Couple, seq: Int) {
+    fun bind(item: CoupleResponse, seq: Int) {
         with(binding) {
 
             rank.text = seq.toString()
             coupleName.text = item.coupleName
             introduction.text = item.introduction
-            score.text = item.store.toProcessedString()
+            score.text = item.coupleTotalScore.toProcessedString()
             Glide.with(root)
                 .load(item.coupleImageUrl)
                 .into(profileImg)
@@ -75,6 +76,10 @@ class RankViewHolder(private val binding: RankItemBinding) : RecyclerView.ViewHo
 
                 3 -> {
                     this.root.setBackgroundResource(R.drawable.bg_rounded_border_16_bronze)
+                }
+
+                else -> {
+                    this.root.setBackgroundResource(R.drawable.bg_rounded_border_16_grey)
                 }
             }
         }

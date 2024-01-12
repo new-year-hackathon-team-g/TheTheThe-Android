@@ -5,12 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.soopeach.thethethe_android.R
+import com.soopeach.thethethe_android.data.local.AccountDataStore
+import com.soopeach.thethethe_android.data.network.NetworkModule
 import com.soopeach.thethethe_android.databinding.FragmentRankBinding
 import com.soopeach.thethethe_android.model.couple.Couple
 import com.soopeach.thethethe_android.utils.toProcessedString
+import com.soopeach.thethethe_android.utils.toToken
+import kotlinx.coroutines.launch
 
 class RankFragment : Fragment() {
 
@@ -30,106 +35,50 @@ class RankFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val myCoupleData = Couple(
-            123,
-            "푸하하",
-            "https://source.unsplash.com/user/max_duz/300x300",
-            "우리가 최고",
-            "2021-09-01",
-            10000000)
+        lifecycleScope.launch {
+            val token = AccountDataStore(requireContext()).getAccessToken()!!
+            val myCoupleData = NetworkModule.getCoupleInfo(token.toToken())
+            val otherCoupleData = NetworkModule.getRanking(token.toToken())
 
-        val otherCoupleData = listOf(
-            Couple(
-                123,
-                "푸하하",
-                "https://source.unsplash.com/user/max_duz/300x300",
-                "우리가 최고",
-                "2021-09-01",
-                10000000
-            ),
-            Couple(
-                1,
-                "꽁냥커플",
-                "https://source.unsplash.com/user/max_duz/300x300",
-                "안녕하세요",
-                "2021-09-01",
-                100000
-            ),
-            Couple(
-                2,
-                "카풀할 사람",
-                "https://source.unsplash.com/user/max_duz/300x300",
-                "님 카풀 해본 적 있나요",
-                "2021-09-01",
-                20300
-            ),
-            Couple(
-                3,
-                "아 배고파",
-                "https://source.unsplash.com/user/max_duz/300x300",
-                "한줄 소개",
-                "2021-09-01",
-                232
-            ),
-            Couple(
-                4,
-                "커플 커플",
-                "https://source.unsplash.com/user/max_duz/300x300",
-                "안녕하세요",
-                "2021-09-01", 12
-            ),
-            Couple(
-                5,
-                "잉꼬부부",
-                "https://source.unsplash.com/user/max_duz/300x300",
-                "안녕하세요",
-                "2021-09-01",
-                1
-            ),
-            Couple(
-                6,
-                "원앙 커플",
-                "https://source.unsplash.com/user/max_duz/300x300",
-                "으아아아아아ㅏ아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏ",
-                "2021-09-01",
-                0
-            ),
-        )
+            with(binding.myCoupleRank) {
 
-        with(binding.myCoupleRank) {
+                val myRank = otherCoupleData.indexOfFirst { it.id == myCoupleData.id } + 1
+                rank.text = myRank.toString()
+                coupleName.text = myCoupleData.coupleName
+                introduction.text = myCoupleData.introduction
+                score.text = myCoupleData.coupleTotalScore.toProcessedString()
+                Glide.with(root)
+                    .load(myCoupleData.coupleImageUrl)
+                    .into(profileImg)
 
-            val myRank = otherCoupleData.indexOfFirst { it.cid == myCoupleData.cid } + 1
-            rank.text = myRank.toString()
-            coupleName.text = myCoupleData.coupleName
-            introduction.text = myCoupleData.introduction
-            score.text = myCoupleData.store.toProcessedString()
-            Glide.with(root)
-                .load(myCoupleData.coupleImageUrl)
-                .into(profileImg)
+                when (myRank) {
+                    1 -> {
+                        this.root.setBackgroundResource(R.drawable.bg_rounded_border_16_gold)
+                    }
 
-            when (myRank) {
-                1 -> {
-                    this.root.setBackgroundResource(R.drawable.bg_rounded_border_16_gold)
-                }
+                    2 -> {
+                        this.root.setBackgroundResource(R.drawable.bg_rounded_border_16_silver)
+                    }
 
-                2 -> {
-                    this.root.setBackgroundResource(R.drawable.bg_rounded_border_16_silver)
-                }
-
-                3 -> {
-                    this.root.setBackgroundResource(R.drawable.bg_rounded_border_16_bronze)
+                    3 -> {
+                        this.root.setBackgroundResource(R.drawable.bg_rounded_border_16_bronze)
+                    }
+                    else -> {
+                        this.root.setBackgroundResource(R.drawable.bg_rounded_border_16_grey)
+                    }
                 }
             }
+
+
+            val adapter = RankListAdapter()
+            binding.RecyclerView.layoutManager = LinearLayoutManager(requireContext())
+            binding.RecyclerView.adapter = adapter
+
+            adapter.submitList(
+                otherCoupleData
+            )
         }
 
-
-        val adapter = RankListAdapter()
-        binding.RecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.RecyclerView.adapter = adapter
-
-        adapter.submitList(
-            otherCoupleData
-        )
 
     }
 
