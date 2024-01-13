@@ -20,14 +20,14 @@ class ConnectActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.checkbutton2.setOnClickListener {
-            binding.idCheck.text.toString()
+            binding.idCheck.text
 
             lifecycleScope.launch {
                 val token =
                     AccountDataStore(context = this@ConnectActivity).getAccessToken()
                 val isSuccess = NetworkModule.joinCouple(
                     token!!.toToken(),
-                    binding.idCheck.text.toString()
+                    binding.idCheck.text
                 )
 
                 if (isSuccess) {

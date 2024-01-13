@@ -8,12 +8,15 @@ import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.view.View.OnTouchListener
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.soopeach.thethethe_android.MainActivity
 import com.soopeach.thethethe_android.data.local.AccountDataStore
 import com.soopeach.thethethe_android.data.network.NetworkModule
 import com.soopeach.thethethe_android.databinding.ActivityCoupleProfileBinding
@@ -58,15 +61,15 @@ class CoupleProfileActivity : AppCompatActivity() {
             requestLauncher.launch(intent)
         }
 
-//        binding.coupleSave.setOnTouchListener(OnTouchListener { v, event ->
-//            val inputManager =
-//                this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//            inputManager.hideSoftInputFromWindow(
-//                this.currentFocus!!.windowToken,
-//                InputMethodManager.HIDE_NOT_ALWAYS
-//            )
-//            false
-//        })
+        binding.coupleSave.setOnTouchListener(OnTouchListener { v, event ->
+            val inputManager =
+                this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputManager.hideSoftInputFromWindow(
+               this.currentFocus!!.windowToken,
+                InputMethodManager.HIDE_NOT_ALWAYS
+            )
+            false
+        })
         binding.coupleSave.setOnClickListener {
 
             if (binding.coupleNameSetting.text.toString().isNotEmpty()) {
@@ -95,21 +98,38 @@ class CoupleProfileActivity : AppCompatActivity() {
                                 "2020-05-05"
                             )
                         )
-                        val intent = Intent(this@CoupleProfileActivity, LoadingActivity::class.java)
-                        intent.putExtra("secretId", secretId)
-                        startActivity(intent)
-                        finish()
+                        binding.idText.setText(secretId)
+                        //val intent = Intent(this@CoupleProfileActivity, LoadingActivity::class.java)
+                        //intent.putExtra("secretId", secretId)
+                        //startActivity(intent)
+                        //finish()
                     }
 
-                    //binding.idLayout.visibility= View.VISIBLE
+                    binding.idLayout.visibility= View.VISIBLE
                 }
             }
         }
-        /*
-                binding.checkbutton.setOnClickListener {
-                    var intent = Intent(this, MainActivity::class.java)
+
+
+        //binding.idText.text = intent.getStringExtra("secretId")
+        binding.checkbutton.setOnClickListener {
+
+            lifecycleScope.launch {
+                val token =
+                    AccountDataStore(context = this@CoupleProfileActivity).getAccessToken()
+                val coupleInfo = NetworkModule.getCoupleInfo(token!!.toToken())
+
+                if (coupleInfo.status != "ACCEPTED") {
+                    Toast.makeText(this@CoupleProfileActivity, "아직 상대방이 수락하지 않았습니다.", Toast.LENGTH_SHORT)
+                        .show()
+                } else {
+                    var intent = Intent(this@CoupleProfileActivity, MainActivity::class.java)
                     startActivity(intent)
-                }*/
+                }
+            }
+
+        }
+
     }
 
     private fun save() {

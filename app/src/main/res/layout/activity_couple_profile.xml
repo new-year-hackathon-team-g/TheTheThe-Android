@@ -24,7 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         style="@style/TheButtonMain"
-        android:text="사진변경하기"/>
+        android:text="사진변경"/>
+
 
     <TextView
         android:layout_marginLeft="15dp"
@@ -65,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         style="@style/TheButtonMain"
-        android:text="저장하기"/>
+        android:text="저장"/>
 
 
 
@@ -87,8 +88,10 @@
             android:layout_height="match_parent"
             android:gravity="center">
             <TextView
+                android:id="@+id/idText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/title_medium_medium"
                 android:text="id"
                 android:textSize="30dp"/>
             <LinearLayout
@@ -96,18 +99,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_gravity="center">
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/id_copy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="@style/TheButtonMain"
                     android:text="복사"
                     android:layout_marginRight="20dp"/>
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/checkbutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#F6BFBF"
+                    style="@style/TheButtonMain"
                     android:text="확인"
+
                     />
             </LinearLayout>
 
