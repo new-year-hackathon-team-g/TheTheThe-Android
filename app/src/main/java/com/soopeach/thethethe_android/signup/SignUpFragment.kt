@@ -77,6 +77,8 @@ class SignUpFragment : Fragment() {
                     Toast.makeText(requireContext(), "프로필 사진을 선택해주세요.", Toast.LENGTH_SHORT).show()
                 } else {
 
+                    binding.progressBar.visibility = View.VISIBLE
+
                     var imageUrl = "https://source.unsplash.com/user/max_duz/300x300"
                     binding.selectImagesButton.apply {
                         isDrawingCacheEnabled = true
@@ -107,6 +109,8 @@ class SignUpFragment : Fragment() {
                         ).accessToken
 
                         AccountDataStore(requireContext()).updateAccessTokenKey(accessToken)
+
+                        binding.progressBar.visibility = View.GONE
 
                         val intent = Intent(requireContext(), RequestActivity::class.java)
                         startActivity(intent)
