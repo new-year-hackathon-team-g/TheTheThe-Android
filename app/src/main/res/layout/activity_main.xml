@@ -24,8 +24,8 @@ tools:context=".MainActivity" >
     android:layout_marginEnd="0dp"
     android:background="#ffffff"
     app:labelVisibilityMode="labeled"
-    app:itemIconTint="@drawable/"
-    app:itemTextColor="@color/black"
+    app:itemIconTint="@color/menu_selector_color"
+    app:itemTextColor="@color/menu_selector_color"
     app:menu="@menu/bottom_nav" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
